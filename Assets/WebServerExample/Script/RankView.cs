@@ -37,7 +37,7 @@ public class RankView : MonoBehaviour
         string url = string.Format("{0}/RegistScore.php?name={1}&score={2}", _serverURL,inUserName, inUserScore);
         using (UnityWebRequest www = UnityWebRequest.Get(url))
         {
-            yield return www.Send();
+            yield return www.SendWebRequest();
 
             if (www.isNetworkError)
             {
@@ -47,7 +47,7 @@ public class RankView : MonoBehaviour
 
         using (UnityWebRequest www = UnityWebRequest.Get(_serverURL + "/index.php"))
         {
-            yield return www.Send();
+            yield return www.SendWebRequest();
 
             if (www.isNetworkError)
             {
